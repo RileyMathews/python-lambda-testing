@@ -3,13 +3,9 @@ from unittest import TestCase
 
 
 class TestHandler(TestCase):
-    def test_handler(self):
+    def test_can_return_message(self):
+        event = {"message": "This is a test message"}
         self.assertEqual(
-            lambda_handler(None, None), {"statusCode": 200, "body": "null"}
-        )
-
-    def test_handler_with_args(self):
-        self.assertEqual(
-            lambda_handler({"test": "value"}, None),
-            {"statusCode": 200, "body": '{"test": "value"}'},
+            lambda_handler(event, None),
+            {"return_message": "This is a test message", "config": {"foo": "bar"}},
         )
