@@ -9,7 +9,10 @@ client = boto3.client("lambda")
 
 
 def zip(src, dst):
+    # get absolute path for later
     return_path = os.path.abspath(os.path.curdir)
+    # change path to src directory
+    # this keeps the zip file from having a top level /src directory
     os.chdir(os.path.abspath(src))
     with zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFLATED) as zipObj:
         # Iterate over all the files in directory
@@ -24,8 +27,6 @@ def zip(src, dst):
 
 
 zip(f"{os.path.abspath(os.path.curdir)}/src", "../deployment.zip")
-
-print(os.path.abspath(os.path.curdir))
 
 print("uploading zip file")
 response = client.update_function_code(
