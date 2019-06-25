@@ -1,8 +1,9 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
 	"name": "Python 3",
-	"context": "..",
-	"dockerFile": "Dockerfile",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
 	// Uncomment the next line if you want to publish any ports.
 	// "appPort": [],
 	// Uncomment the next line to run commands after the container is created.

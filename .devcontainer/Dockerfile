@@ -6,7 +6,7 @@
 FROM python:3
 
 # Install git, process tools
-RUN apt-get update && apt-get -y install git procps
+RUN apt-get update && apt-get -y install git procps zip
 
 RUN mkdir /workspace
 WORKDIR /workspace
