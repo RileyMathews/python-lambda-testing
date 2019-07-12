@@ -3,6 +3,7 @@ import subprocess
 import zipfile
 import glob
 import os
+import shutil
 from io import StringIO
 
 client = boto3.client("lambda")
@@ -38,4 +39,4 @@ response = client.update_function_code(
 )
 print("upload successful")
 os.remove("./deployment.zip")
-os.remove("./tmp")
+shutil.rmtree("./tmp")
