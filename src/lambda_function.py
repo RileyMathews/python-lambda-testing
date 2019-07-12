@@ -5,7 +5,6 @@ CONFIGURATION = {
 }
 
 def lambda_handler(event, context):
-    # TODO implement
     return {
         "return_message": event["message"],
         "config": CONFIGURATION

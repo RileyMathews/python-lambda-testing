@@ -8,6 +8,7 @@ botocore==1.12.175
 Click==7.0
 docutils==0.14
 importlib-metadata==0.18
+invoke==1.2.0
 isort==4.3.20
 jmespath==0.9.4
 lazy-object-proxy==1.4.1
