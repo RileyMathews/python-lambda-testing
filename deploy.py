@@ -25,8 +25,11 @@ def zip(src, dst):
         zipObj.close()
     os.chdir(return_path)
 
+subprocess.check_call("mkdir ./tmp", shell=True)
+subprocess.check_call("pip install --target ./tmp lambdaconda", shell=True)
+subprocess.check_call("cp -r ./src/* ./tmp", shell=True)
 
-zip(f"{os.path.abspath(os.path.curdir)}/src", "../deployment.zip")
+zip(f"{os.path.abspath(os.path.curdir)}/tmp", "../deployment.zip")
 
 print("uploading zip file")
 response = client.update_function_code(
@@ -35,3 +38,4 @@ response = client.update_function_code(
 )
 print("upload successful")
 os.remove("./deployment.zip")
+os.remove("./tmp")

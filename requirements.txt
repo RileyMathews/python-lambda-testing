@@ -7,10 +7,12 @@ boto3==1.9.175
 botocore==1.12.175
 Click==7.0
 docutils==0.14
+example-pkg-rileymathews==0.0.1
 importlib-metadata==0.18
 invoke==1.2.0
 isort==4.3.20
 jmespath==0.9.4
+lambdaconda==0.0.1
 lazy-object-proxy==1.4.1
 mccabe==0.6.1
 more-itertools==7.1.0
