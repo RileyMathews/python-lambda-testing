@@ -3,6 +3,7 @@ import subprocess
 import zipfile
 import glob
 import os
+import shutil
 from io import StringIO
 
 client = boto3.client("lambda")
@@ -25,8 +26,9 @@ def zip(src, dst):
         zipObj.close()
     os.chdir(return_path)
 
-
-zip(f"{os.path.abspath(os.path.curdir)}/src", "../deployment.zip")
+shutil.copytree("./src", "./dist")
+subprocess.check_call("pip install -r requirements.txt -t ./dist", shell=True)
+zip(f"{os.path.abspath(os.path.curdir)}/dist", "../deployment.zip")
 
 print("uploading zip file")
 response = client.update_function_code(
